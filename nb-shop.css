@@ -1,69 +1,61 @@
-img{
+/* Global Styles */
+img {
     border-radius: 15px;
+    transition: transform 0.3s ease;
 }
 
-
+/* Product Styling */
 .product {
     background-color: #ffffff;
     border: 1px solid #dddddd;
-    padding: 15px; 
-    margin: 10px;
-    margin-bottom: 20px; 
+    padding: 20px;
+    margin: 15px 10px;
+    margin-bottom: 25px;
     border-radius: 15px;
-   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-
-}
-
-.product img,
-.product h5,
-.product button {
-    display: block;
-    margin: 0 auto;
-}
-
-.product {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
     cursor: pointer;
-    background-color: #F3F8FF; /* White background */
-    border: 1px solid #f5ecec; /* Light gray border */
-    padding: 15px; /* Add some padding for spacing */
-    margin: 10px;
-    margin-bottom: 20px; /* Add margin to separate products */
-    border-radius: 15px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease; /* Add transition for smooth effect */
+    background-color: #F3F8FF; /* Light blue background */
+    border: 1px solid #f5ecec;
 }
 
-/* Add border-radius and transition to product image */
+/* Product Hover Effects */
+.product:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+    transform: translateY(-5px); /* Lift effect */
+}
+
+/* Product Image Styling */
 .product img {
     border: 3px solid #d8d6d6;
     border-radius: 15px;
-    transition: transform 0.3s ease; /* Add transition for smooth effect */
+    transition: transform 0.3s ease;
 }
 
-/* Change box-shadow and image transform on hover */
-.product:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Slightly stronger box-shadow on hover */
-}
-
+/* Product Image Hover Effect */
 .product:hover img {
-    transform: scale(1.1); /* Scale up the image on hover */
+    transform: scale(1.1); /* Scale up the image */
 }
 
-.product h5{
-    margin-top: 5px;
+/* Product Title Styling */
+.product h5 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
 }
 
-header nav{
+/* Header Styling */
+header nav {
     height: 15vh;
     width: 80%;
     margin: 0 auto;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-header h1{
+header h1 {
     font-size: 45px;
     color: #561C24;
     font-weight: 800;
@@ -71,47 +63,41 @@ header h1{
     letter-spacing: 5px;
 }
 
-header ul{
+header ul {
     display: flex;
-    gap: 5rem;
+    gap: 3rem;
     list-style: none;
 }
 
-header a{
+header a {
     display: block;
     color: #561C24;
     text-decoration: none;
-    
-    border-radius: .2rem;
-    padding: .5rem 1rem;
-
-    transition: .2s ease-in;
-    border-bottom: 2px solid var(--blue);
-
-    overflow: hidden;
+    border-radius: 0.2rem;
+    padding: 0.5rem 1rem;
+    transition: 0.2s ease-in;
     position: relative;
 }
 
-header a::before{
+/* Hover Effect on Navigation Links */
+header a::before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
-
     width: 100%;
     height: 100%;
-    border-radius: .1rem;
+    border-radius: 0.1rem;
     z-index: -1;
-
-    transition: .2s ease-in;
+    background: #4C9BF3; /* Light blue background */
     transform: translateX(-101%);
-    background: var(--blue);
+    transition: 0.2s ease-in;
 }
 
-header a:hover::before{
+header a:hover::before {
     transform: translateX(0);
 }
 
-header a:hover{
-    color: rgb(255, 255, 255);
+header a:hover {
+    color: #fff; /* White text on hover */
 }

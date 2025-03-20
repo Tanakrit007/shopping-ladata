@@ -4,15 +4,14 @@
 /*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
-  /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(82, 60%, 28%);
   --title-color: hsl(0, 0%, 15%);
   --text-color: hsl(0, 0%, 35%);
   --body-color: hsl(0, 0%, 95%);
   --container-color: hsl(0, 0%, 100%);
+  --hover-color: hsl(82, 60%, 50%); /* Lighter hover color */
 
   /*========== Font and typography ==========*/
-  /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
   --h2-font-size: 1.25rem;
   --small-font-size: 0.813rem;
@@ -44,6 +43,12 @@ img {
   max-width: 100%;
   height: auto;
   border: 3px solid #dadada;
+  border-radius: 8px; /* Slightly rounded borders for images */
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.05); /* Image zoom effect */
 }
 
 button {
@@ -51,6 +56,7 @@ button {
   background: none;
   cursor: pointer;
 }
+
 /*=============== CARD ===============*/
 .container {
   display: grid;
@@ -67,11 +73,18 @@ button {
 .card__article {
   position: relative;
   overflow: hidden;
+  border-radius: 1rem; /* Round corners for card containers */
+  transition: transform 0.3s ease-in-out;
+}
+
+.card__article:hover {
+  transform: translateY(-5px); /* Slight hover lift */
 }
 
 .card__img {
   width: 328px;
   border-radius: 1.5rem;
+  transition: transform 0.3s ease;
 }
 
 .card__data {
@@ -86,13 +99,14 @@ button {
   right: 0;
   margin-inline: auto;
   opacity: 0;
-  transition: opacity 1s 1s;
+  transition: opacity 1s 1s, transform 0.3s ease;
 }
 
 .card__description {
   display: block;
   font-size: var(--small-font-size);
   margin-bottom: 0.25rem;
+  color: hsl(0, 0%, 50%); /* Lighten the text color for description */
 }
 
 .card__title {
@@ -107,21 +121,19 @@ button {
   font-size: var(--small-font-size);
   font-weight: 500;
   color: var(--first-color);
+  transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
 .card__button:hover {
+  color: var(--hover-color); /* Change color on hover */
   text-decoration: underline;
 }
 
-/* Naming animations in hover */
+/* Card hover animations */
 .card__article:hover .card__data {
   animation: show-data 1s forwards;
   opacity: 1;
-  transition: opacity 0.3s;
-}
-
-.card__article:hover {
-  animation: remove-overflow 2s forwards;
+  transform: translateY(-7rem);
 }
 
 .card__article:not(:hover) {
@@ -132,7 +144,6 @@ button {
   animation: remove-data 1s forwards;
 }
 
-/* Card animation */
 @keyframes show-data {
   50% {
     transform: translateY(-10rem);
@@ -171,7 +182,6 @@ button {
 }
 
 /*=============== BREAKPOINTS ===============*/
-/* For small devices */
 @media screen and (max-width: 340px) {
   .container {
     margin-inline: 1rem;
@@ -183,7 +193,6 @@ button {
   }
 }
 
-/* For medium devices */
 @media screen and (min-width: 768px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
@@ -191,7 +200,6 @@ button {
   }
 }
 
-/* For large devices */
 @media screen and (min-width: 1120px) {
   .container {
     height: 100%;
